@@ -3,7 +3,7 @@
 - name: install specific python software properties version
   apt:
     pkg: 'python-software-properties={{ brightbox_ruby_psp_pkg_version }}'
-    state: installed
+    state: present
     update_cache: yes
     cache_valid_time: 3600
   when: brightbox_ruby_psp_pkg_version
@@ -27,7 +27,7 @@
 - name: install Brightbox Ruby package
   apt:
     pkg: '{{ item }}'
-    state: installed
+    state: present
     update_cache: yes
     cache_valid_time: 3600
   with_items: '{{ brightbox_ruby_packages }}'
